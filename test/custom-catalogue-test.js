@@ -26,6 +26,7 @@ if (response === false)
     console.log('\tPassed')
 else
     console.log('failed')
+
 //================================
 
 cat = new Catalogue("Test Catalogue");
@@ -66,3 +67,24 @@ if (matches.length === 0)
   console.log('\tPassed')
 else
   console.log('\tFailed')
+
+//================================
+
+cat = new Catalogue("Test Catalogue");
+console.log('Test removeProductById')
+console.log("\tWhen we remove a product, then it will return true")
+cat.addProduct(p128);
+response = cat.removeProductById("A128");
+// Expectation
+if (response === true)
+    console.log('\tPassed')
+else
+    console.log('\tfailed')
+
+console.log("\tWhen we remove a product whose id doesn't match any existing one, then it will return false")
+response = cat.removeProductById("A1234567");
+// Expectation
+if (response === false)
+    console.log('\tPassed')
+else
+    console.log('\tfailed')

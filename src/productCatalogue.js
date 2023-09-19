@@ -27,5 +27,13 @@ class Catalogue {
     })
     return matches;
   }
+
+  removeProductById(id) {
+    if (this.findProductById(id)) {
+      this.products = this.products.filter(product => product.id != id)
+      return true;
+    }
+    return false;
+  }
 }
 module.exports = Catalogue;
