@@ -35,5 +35,12 @@ class Catalogue {
     }
     return false;
   }
+
+  checkRecord() {
+    let res = {};
+    res.type = "Recorder";
+    res.productIds = this.products.map(product => product.id);
+    return res;
+  }
 }
 module.exports = Catalogue;

@@ -93,7 +93,6 @@ else
 console.log('Test checkRecord()')
 
 cat = new Catalogue("Test Catalogue");
-console.log('Test findProductByNameLike')
 
 cat.addProduct(p123);
 cat.addProduct(p124);
@@ -107,9 +106,11 @@ response = cat.checkRecord()
 console.log("\tGiven the catalogue has some products, it returns an object with productIds")
 
 // Expectation
+let responsedIds = response.productIds;
+let expectedIds = cat.products.map(product => product.id);
 if (response.type !== "Recorder")
     console.log('\tfailed')
-else if (response.productIds !== cat.products.map(product => product.id))
+else if (!(responsedIds.length === expectedIds.length && responsedIds.toString() === expectedIds.toString()))
     console.log('\tfailed')
 else
     console.log('\tPassed')
