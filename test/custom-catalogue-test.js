@@ -70,7 +70,6 @@ else
 
 //================================
 
-cat = new Catalogue("Test Catalogue");
 console.log('Test removeProductById')
 console.log("\tWhen we remove a product, then it will return true")
 cat.addProduct(p128);
@@ -88,3 +87,29 @@ if (response === false)
     console.log('\tPassed')
 else
     console.log('\tfailed')
+
+//================================
+
+console.log('Test checkRecord()')
+
+cat = new Catalogue("Test Catalogue");
+console.log('Test findProductByNameLike')
+
+cat.addProduct(p123);
+cat.addProduct(p124);
+cat.addProduct(p125);
+cat.addProduct(p126);
+cat.addProduct(p127);
+cat.addProduct(p128);
+
+response = cat.checkRecord()
+
+console.log("\tGiven the catalogue has some products, it returns an object with productIds")
+
+// Expectation
+if (response.type !== "Recorder")
+    console.log('\tfailed')
+else if (response.productIds !== cat.products.map(product => product.id))
+    console.log('\tfailed')
+else
+    console.log('\tPassed')
